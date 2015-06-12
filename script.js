@@ -43,7 +43,7 @@ $(document).ready(function() {
 				}
 			}).done(function(data) {
 				console.log(data);
-				$('#standort').text(data.results.2.formatted_address);
+				$('#standort').text(data.results.'2'.formatted_address);
 			});
 
 		});
