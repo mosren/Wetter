@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-
+	/*
 	navigator.geolocation.getCurrentPosition(function(position) {
 		console.log(position);
 
@@ -9,11 +9,35 @@ $(document).ready(function() {
 		$('.accuracy').text(position.coords.accuracy);
 
 	});
+*/
+
+	navigator.geolocation.getCurrentPosition(function(position) {
+	var koordinaten = {
+
+		longitude: position.coords.longitude,
+		latitude: position.coords.latitude
+		};
+
+
+		$.ajax({
+
+			url: 'https://api.forecast.io/forecast/271f4e81e46fea4cf6c80d52e712ab00/' + koordinaten.latitude + ',' + koordinaten.longitude,
+			data: {
+			  units: 'si',
+			  lang: 'de'
+			},
+			dataType: 'jsonp'
+
+
+		}).done(function(data) {
+				console.log(data);
+			});
+
+	});
 
 
 
-
-
+/*
 
 	$.ajax({
 		dataType: 'jsonp',
@@ -27,6 +51,12 @@ $(document).ready(function() {
 
 	});
 
+
+
+
+	'https://api.forecast.io/forecast/271f4e81e46fea4cf6c80d52e712ab00/' + koordinaten.latitude + ',' + koordinaten.longitude,
+
+*/
 	
 
 });
