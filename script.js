@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-	/*
+/*
 	navigator.geolocation.getCurrentPosition(function(position) {
 		console.log(position);
 
@@ -11,52 +11,43 @@ $(document).ready(function() {
 	});
 */
 
-	navigator.geolocation.getCurrentPosition(function(position) {
-	var koordinaten = {
 
-		longitude: position.coords.longitude,
-		latitude: position.coords.latitude
+	navigator.geolocation.getCurrentPosition(function(position) {
+
+		var koordinaten = {
+			longitude: position.coords.longitude,
+			latitude: position.coords.latitude
 		};
 
 
-		$.ajax({
-
+		$.ajax({ // Forecast Anfrage
 			url: 'https://api.forecast.io/forecast/271f4e81e46fea4cf6c80d52e712ab00/' + koordinaten.latitude + ',' + koordinaten.longitude,
 			data: {
-			  units: 'si',
-			  lang: 'de'
+				units: 'si',
+				lang: 'de'
 			},
 			dataType: 'jsonp'
-
-
 		}).done(function(data) {
+			console.log(data);
+			$('#temperatur').text(data.currently.apparentTemperature);
+			//$('#based').text(data.flags['metno-license']);
+
+
+
+			$.ajax({ // Google Geocoding Anfrage
+				url: 'https://maps.googleapis.com/maps/api/geocode/json',
+				data: {
+					latlng: koordinaten.latitude + ',' + koordinaten.longitude,
+					key: 'AIzaSyDgYh-UffzCV54XCcReML4WSqyb0_zv8x8',
+					lang: 'de'
+				}
+			}).done(function(data) {
 				console.log(data);
 			});
 
-	});
-
-
-
-/*
-
-	$.ajax({
-		dataType: 'jsonp',
-
-		url: 'https://api.forecast.io/forecast/271f4e81e46fea4cf6c80d52e712ab00/46.8280275,9.394216?callback=?&units=si'
-	}).done(function(data) {
-		console.log(data);
-
-		$('#temperatur').text(data.currently.apparentTemperature);
-		$('#based').text(data.flags['metno-license']);
+		});
 
 	});
-
-
-
-
-	'https://api.forecast.io/forecast/271f4e81e46fea4cf6c80d52e712ab00/' + koordinaten.latitude + ',' + koordinaten.longitude,
-
-*/
 	
 
 });
