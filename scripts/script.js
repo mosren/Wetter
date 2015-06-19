@@ -26,7 +26,7 @@ $(document).ready(function() {
 
 
 		setTimeout(function() {
-			skycons.set($('js-icon')[0], Skycons.PARTLY_CLOUDY_DAY);
+			skycons.set($('.js-icon')[0], Skycons.PARTLY_CLOUDY_DAY);
 		}, 5000);
 
 
