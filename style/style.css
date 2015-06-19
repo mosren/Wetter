@@ -3,14 +3,46 @@ h1 {
 	font-size: 60px;
 }
 
-
 canvas {
 	display: block;
 	height: 128px;
 	margin: 0 auto;
 }
 
-.ui-content {
+canvas.day {
+	height: 50px;
+	width: 100px;
+}
 
+.ui-content {
 	margin-top: 50px;
+}
+
+#summary {
+	font-size: 20px;
+	text-align: center;
+}
+
+.vorhersage {
+ 	padding: 0 auto;
+ 	overflow: auto;
+ 	margin: 0 auto;
+
+}
+
+.wetterspalte {
+	float: left;
+	overflow: auto;
+	width: 20%;
+}
+
+.day {
+	width: 50x;
+	margin: 0 auto;
+
+}
+
+.temp_day {
+	font-size: 20px;
+	text-align: center;
 }

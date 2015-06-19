@@ -23,15 +23,30 @@ $(document).ready(function() {
 			dataType: 'jsonp'
 		}).done(function(data) {
 			console.log(data);
-			$('#temperatur').text(data.currently.apparentTemperature + ' °C');
+			$('#temperatur').text(data.currently.apparentTemperature + '°C');
 			//$('#based').text(data.flags['metno-license']);
-			$('#temperatur').text(data.currently.summary);
+			$('#summary').text(data.currently.summary);
+
+			skycons.set($('.day0')[0], data.daily.data[0].icon);
+			$('.temp_day0').text(data.daily.data[0].apparentTemperatureMax + '°C');
+
+			skycons.set($('.day1')[0], data.daily.data[1].icon);
+			$('.temp_day1').text(data.daily.data[1].apparentTemperatureMax + '°C');
+
+			skycons.set($('.day2')[0], data.daily.data[2].icon);
+			$('.temp_day2').text(data.daily.data[2].apparentTemperatureMax + '°C');
+
+			skycons.set($('.day3')[0], data.daily.data[3].icon);
+			$('.temp_day3').text(data.daily.data[3].apparentTemperatureMax + '°C');
+
+			skycons.set($('.day4')[0], data.daily.data[4].icon);
+			$('.temp_day4').text(data.daily.data[4].apparentTemperatureMax + '°C');
+
 
 
 			skycons.set($('.js-icon')[0], data.currently.icon); 
 			//skycons.add($('.js-icon')[0], Skycons.RAIN);
 			skycons.play();
-
 
 
 

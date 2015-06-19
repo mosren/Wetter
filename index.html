@@ -28,11 +28,36 @@
 	<div data-role="header" data-add-back-btn="true"><h1 id="standort"></h1></div>
 	<div role="main" class="ui-content">
 
-		<canvas class="js-icon" height="128" width="128"></canvas>
+		<canvas class="js-icon" height="128"></canvas>
 		<p></p>
+
 		<h1 id="temperatur"></h1>
 		<p id="summary"></p>
-		<a href="#sub" data-transition="flip" class="ui-btn">Impressum</a>
+
+		<div class="vorhersage">
+			<div class="wetterspalte">
+				<canvas class="day day0"></canvas>
+				<p class="temp_day temp_day0"></p>
+			</div>
+			<div class="wetterspalte">
+				<canvas class="day day1"></canvas>
+				<p class="temp_day temp_day1"></p>
+			</div>
+			<div class="wetterspalte">
+				<canvas class="day day2"></canvas>
+				<p class="temp_day temp_day2"></p>
+			</div>
+			<div class="wetterspalte">
+				<canvas class="day day3"></canvas>
+				<p class="temp_day temp_day3"></p>
+			</div>
+			<div class="wetterspalte">
+				<canvas class="day day4"></canvas>
+				<p class="temp_day temp_day4"></p>
+			</div>
+		</div>
+
+		<div style="clear: both"><a href="#sub" data-transition="flip" class="ui-btn">Impressum</a></div>
 
 	</div>
 	<!-- <div data-role="footer"><h1></h1></div> -->
