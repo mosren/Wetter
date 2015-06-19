@@ -14,6 +14,16 @@ $(document).ready(function() {
 
 	navigator.geolocation.getCurrentPosition(function(position) {
 
+		var skycons = new skycons();
+
+		skycons.add($('.js-icon')[0], Skycons.RAIN);
+		skycons.play();
+
+
+
+
+
+
 		var koordinaten = {
 			longitude: position.coords.longitude,
 			latitude: position.coords.latitude
