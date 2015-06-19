@@ -14,7 +14,12 @@ $(document).ready(function() {
 
 	navigator.geolocation.getCurrentPosition(function(position) {
 
-		var skycons = new skycons();
+
+
+		var skycons = new Skycons({
+			color: "bada55",
+			resizeClear: true
+		});
 
 		skycons.add($('.js-icon')[0], Skycons.RAIN);
 		skycons.play();
