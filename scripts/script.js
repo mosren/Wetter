@@ -1,34 +1,11 @@
 $(document).ready(function() {
 
-/*
 	navigator.geolocation.getCurrentPosition(function(position) {
-		console.log(position);
-
-		$('.longitude').text(position.coords.longitude);
-		$('.latitude').text(position.coords.latitude);
-		$('.accuracy').text(position.coords.accuracy);
-
-	});
-*/
-
-
-	navigator.geolocation.getCurrentPosition(function(position) {
-
-
 
 		var skycons = new Skycons({
 			color: "bada55",
 			resizeClear: true
 		});
-
-		skycons.add($('.js-icon')[0], Skycons.RAIN);
-		skycons.play();
-
-
-		setTimeout(function() {
-			skycons.set($('.js-icon')[0], Skycons.PARTLY_CLOUDY_DAY);
-		}, 5000);
-
 
 
 		var koordinaten = {
@@ -46,8 +23,15 @@ $(document).ready(function() {
 			dataType: 'jsonp'
 		}).done(function(data) {
 			console.log(data);
-			$('#temperatur').text(data.currently.apparentTemperature);
+			$('#temperatur').text(data.currently.apparentTemperature + ' °C');
 			//$('#based').text(data.flags['metno-license']);
+			$('#temperatur').text(data.currently.summary);
+
+
+			skycons.set($('.js-icon')[0], data.currently.icon); 
+			//skycons.add($('.js-icon')[0], Skycons.RAIN);
+			skycons.play();
+
 
 
 
@@ -66,6 +50,6 @@ $(document).ready(function() {
 		});
 
 	});
-	
+
 
 });

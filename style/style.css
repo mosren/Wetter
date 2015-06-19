@@ -8,5 +8,9 @@ canvas {
 	display: block;
 	height: 128px;
 	margin: 0 auto;
-	width: 256px;
+}
+
+.ui-content {
+
+	margin-top: 50px;
 }
