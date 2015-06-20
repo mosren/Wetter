@@ -1,30 +1,36 @@
 h1 {
 	text-align: center;
-	font-size: 60px;
 }
 
 canvas {
 	display: block;
-	height: 128px;
 	margin: 0 auto;
 }
 
-canvas.day {
-	height: 50px;
-	width: 100px;
+#main {
+	background-color: #f4f4f4;
 }
 
 .ui-content {
 	margin-top: 50px;
 }
 
+#temperatur {
+	font-size: 300%
+}
+
 #summary {
-	font-size: 20px;
+	font-size: 160%;
 	text-align: center;
 }
 
+.js-icon {
+	height: 25%;
+	width: 50%;
+}
+
 .vorhersage {
-	width: 500px;
+	width: 95%;
  	margin: 0 auto 0 auto;
  	overflow: auto;
 }
@@ -33,22 +39,20 @@ canvas.day {
 	float: left;
 	overflow: auto;
 	width: 20%;
-
 }
 
 .day_icon {
-	height: 50px;
-	width: 100px;
+	height: 50%;
+	width: 100%;
 	margin: 0 auto;
-
 }
 
 .day_temp {
-	font-size: 25px;
+	font-size: 120%;
 	text-align: center;
 }
 
 .day_name {
-	font-size: 20px;
+	font-size: 100%;
 	text-align: center;
 }
