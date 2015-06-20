@@ -23,6 +23,14 @@ $(document).ready(function() {
 		a[4] = "FR";
 		a[5] = "SA";
 		a[6] = "SO";
+		a[7] = "MO";
+		a[8] = "DI";
+		a[9] = "MI";
+		a[10] = "DO";
+		a[11] = "FR";
+		a[12] = "SA";
+		a[13] = "SO";
+
 
 		var d = new Date();
 		var tagnummer = d.getDay();
@@ -42,29 +50,12 @@ $(document).ready(function() {
 			$('#temperatur').text(data.currently.apparentTemperature + '°C');   // (math.round(data.currently.apparentTemperature) + '°C')
 			$('#summary').text(data.currently.summary);
 
-
-
-			skycons.set($('.day0')[0], data.daily.data[0].icon);
-			$('.temp_day0').text(data.daily.data[0].apparentTemperatureMax + '°');
-			$('.day_name0').text(a[tagnummer]);
-
-			skycons.set($('.day1')[0], data.daily.data[1].icon);
-			$('.temp_day1').text(data.daily.data[1].apparentTemperatureMax + '°');
-			$('.day_name1').text(a[tagnummer + 1]);
-
-			skycons.set($('.day2')[0], data.daily.data[2].icon);
-			$('.temp_day2').text(data.daily.data[2].apparentTemperatureMax + '°');
-			$('.day_name2').text(a[tagnummer + 2]);
-
-			skycons.set($('.day3')[0], data.daily.data[3].icon);
-			$('.temp_day3').text(data.daily.data[3].apparentTemperatureMax + '°');
-			$('.day_name3').text(a[tagnummer + 3]);
-
-			skycons.set($('.day4')[0], data.daily.data[4].icon);
-			$('.temp_day4').text(data.daily.data[4].apparentTemperatureMax + '°');
-			$('.day_name4').text(a[tagnummer + 4]);
-
-			console.log(tagnummer + 4);
+			for (var counter = 0; counter < 5; counter ++) {
+				console.log(counter);
+				skycons.set($('.day'+ counter)[0], data.daily.data[counter].icon);
+				$('.temp_day' + counter).text(data.daily.data[counter].apparentTemperatureMax + '°');
+				$('.day_name' + counter).text(a[tagnummer + counter]);
+			};
 
 			skycons.set($('.js-icon')[0], data.currently.icon); 
 			//skycons.add($('.js-icon')[0], Skycons.RAIN);
