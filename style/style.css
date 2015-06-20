@@ -46,3 +46,8 @@ canvas.day {
 	font-size: 20px;
 	text-align: center;
 }
+
+.day_name {
+	font-size: 18px;
+	text-align: center;
+}
