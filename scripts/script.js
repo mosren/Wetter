@@ -36,7 +36,8 @@ $(document).ready(function() {
 		var tagnummer = d.getDay();
 
 
-		$.ajax({ // Forecast Anfrage
+		// Forecast Anfrage
+		$.ajax({ 
 			url: 'https://api.forecast.io/forecast/271f4e81e46fea4cf6c80d52e712ab00/' + koordinaten.latitude + ',' + koordinaten.longitude,
 			data: {
 				units: 'si',
@@ -46,22 +47,28 @@ $(document).ready(function() {
 		}).done(function(data) {
 			
 
-			//console.log(data);
-			$('#temperatur').text(data.currently.apparentTemperature + '°C');   // (math.round(data.currently.apparentTemperature) + '°C')
-			$('#summary').text(data.currently.summary);
+			//console.log(data); 
+			$('#temperatur').text(Math.round(parseFloat(data.currently.apparentTemperature)) + '°C');   // (math.round(data.currently.apparentTemperature) + '°C') 
+			$('#summary').text(data.currently.summary); 
 
+
+
+			// 5Tage-Wettervorhersage
 			for (var counter = 0; counter < 5; counter ++) {
 				console.log(counter);
-				skycons.set($('.day'+ counter)[0], data.daily.data[counter].icon);
-				$('.temp_day' + counter).text(data.daily.data[counter].apparentTemperatureMax + '°');
-				$('.day_name' + counter).text(a[tagnummer + counter]);
+				skycons.set($('.day_icon'+ counter)[0], data.daily.data[counter].icon);
+				$('.day_temp' + counter).text(Math.round(parseFloat(data.daily.data[counter].apparentTemperatureMax)) + '°');
+				$('.day_name' + counter).text(a[tagnummer + counter]); 
 			};
+
 
 			skycons.set($('.js-icon')[0], data.currently.icon); 
 			//skycons.add($('.js-icon')[0], Skycons.RAIN);
 			skycons.play();
 
-			$.ajax({ // Google Geocoding Anfrage
+
+			// Google Geocoding Anfrage
+			$.ajax({
 				url: 'https://maps.googleapis.com/maps/api/geocode/json',
 				data: {
 					latlng: koordinaten.latitude + ',' + koordinaten.longitude,
@@ -72,6 +79,7 @@ $(document).ready(function() {
 				console.log(data);
 				$('#standort').text(data.results[2].formatted_address);
 			});
+
 
 		});
 

@@ -24,30 +24,31 @@ canvas.day {
 }
 
 .vorhersage {
- 	padding: 0 auto;
+	width: 500px;
+ 	margin: 0 auto 0 auto;
  	overflow: auto;
- 	margin: 0 auto;
-
 }
 
 .wetterspalte {
 	float: left;
 	overflow: auto;
 	width: 20%;
+
 }
 
-.day {
-	width: 50x;
+.day_icon {
+	height: 50px;
+	width: 100px;
 	margin: 0 auto;
 
 }
 
-.temp_day {
-	font-size: 20px;
+.day_temp {
+	font-size: 25px;
 	text-align: center;
 }
 
 .day_name {
-	font-size: 18px;
+	font-size: 20px;
 	text-align: center;
 }
